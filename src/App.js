@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import { matrixGenerator, checkWin } from "./utils";
 import NewGameModal from "./modal/NewGameModal";
 import styled from "styled-components";
