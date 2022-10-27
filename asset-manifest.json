@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/xo_game/static/css/main.e35a0b27.css",
-    "main.js": "/xo_game/static/js/main.56e3f533.js",
+    "main.js": "/xo_game/static/js/main.f9825d49.js",
     "static/js/787.4abf4ae3.chunk.js": "/xo_game/static/js/787.4abf4ae3.chunk.js",
     "static/media/funny-celebrate-8.webp": "/xo_game/static/media/funny-celebrate-8.aa2b63ad71c61a177bad.webp",
     "index.html": "/xo_game/index.html",
     "main.e35a0b27.css.map": "/xo_game/static/css/main.e35a0b27.css.map",
-    "main.56e3f533.js.map": "/xo_game/static/js/main.56e3f533.js.map",
+    "main.f9825d49.js.map": "/xo_game/static/js/main.f9825d49.js.map",
     "787.4abf4ae3.chunk.js.map": "/xo_game/static/js/787.4abf4ae3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e35a0b27.css",
-    "static/js/main.56e3f533.js"
+    "static/js/main.f9825d49.js"
   ]
 }
