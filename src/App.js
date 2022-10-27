@@ -3,6 +3,7 @@ import { matrixGenerator, checkWin } from "./utils";
 import NewGameModal from "./modal/NewGameModal";
 import styled from "styled-components";
 import WinModal from "./modal/WinModal";
+import DrawModal from "./modal/DrawModal";
 // import CircumIcon from "@klarr-agency/circum-icons-react";
 
 const AppWrapper = styled.div`
@@ -77,6 +78,7 @@ function App() {
     { id: 3, name: "", score: 0, symbol: "Z", color: "#0f8ab7" },
   ]);
   const [winModalOpen, setWinModalOpen] = useState(false);
+  const [drawModalOpen, setDrawModalOpen] = useState(false);
 
   const clickOnBoard = ({ xy, check }) => {
     if (!check) {
@@ -94,6 +96,8 @@ function App() {
         setWinModalOpen(true);
         return;
       }
+      const stepArrLength = stepArr.filter((i) => i.check);
+      if (stepArrLength.length === gameMatrix.length) setDrawModalOpen(true);
       setGameMatrix(stepArr);
       const playerStep = playerCounter === player ? 1 : player + 1;
       setPlayer(playerStep);
@@ -123,6 +127,16 @@ function App() {
           setModalIsOpen={setModalIsOpen}
           setWinModalOpen={setWinModalOpen}
           playersName={targetPlayer}
+          callBackFunction={() => {
+            setGameMatrix(matrixGenerator(deltaMatrix));
+            setPlayer(1);
+          }}
+        />
+      )}
+      {drawModalOpen && (
+        <DrawModal
+          setModalIsOpen={setModalIsOpen}
+          setDrawModalOpen={setDrawModalOpen}
           callBackFunction={() => {
             setGameMatrix(matrixGenerator(deltaMatrix));
             setPlayer(1);
@@ -169,7 +183,10 @@ function App() {
         <button
           type="button"
           className="new_game_btn"
-          onClick={() => setModalIsOpen(true)}
+          onClick={() => {
+            setGameMatrix(matrixGenerator(deltaMatrix));
+            setModalIsOpen(true);
+          }}
         >
           Нова гра
         </button>
@@ -178,7 +195,7 @@ function App() {
           {playersName
             .filter((item, index) => index < playerCounter)
             .map((i) => (
-              <div>{`${i.name} : ${i.score}`}</div>
+              <div key={i.symbol}>{`${i.name} : ${i.score}`}</div>
             ))}
         </div>
       </div>

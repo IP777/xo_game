@@ -1,7 +1,7 @@
 {
   "name": "xo_game",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://IP777.github.io/xo_game",
   "dependencies": {
     "@klarr-agency/circum-icons-react": "^2.0.0",
